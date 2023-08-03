@@ -9,11 +9,11 @@ fun evaluateGuess(secret: String, guess: String): Evaluation {
 
 private fun evaluateGuessFunctionalStyle(secret: String, guess: String): Evaluation {
     println(secret.zip(guess))
-    val rightPositions = secret.zip(guess).count { pair: Pair<Char, Char> -> pair.first == pair.second }
+    val rightPositions = secret.zip(guess).count { it.first == it.second }
 
     val commonLetters = "ABCDEF".sumOf { ch ->
 
-        secret.count { c: Char -> c == ch }.coerceAtMost(guess.count { c: Char -> c == ch })
+        secret.count { it == ch }.coerceAtMost(guess.count { it == ch })
     }
     return Evaluation(rightPositions, commonLetters - rightPositions)
 }
@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
 }
 
 private infix fun Evaluation.eq(result: Evaluation) {
-    println("$this == $result:${this.rightPosition == result.rightPosition && this.wrongPosition == result.wrongPosition}")
+    println(if (this.rightPosition == result.rightPosition && this.wrongPosition == result.wrongPosition) "ok" else "not ok")
 }
 
 private fun evaluateGuessWithMaps(secret: String, guess: String): Evaluation {
