@@ -3,7 +3,30 @@ package mastermind
 data class Evaluation(val rightPosition: Int, val wrongPosition: Int)
 
 fun evaluateGuess(secret: String, guess: String): Evaluation {
-    return evaluateGuessWithMaps(secret, guess)
+    //return evaluateGuessWithMaps(secret, guess)
+    return evaluateGuessFunctionalStyle(secret, guess)
+}
+
+private fun evaluateGuessFunctionalStyle(secret: String, guess: String): Evaluation {
+    println(secret.zip(guess))
+    val rightPositions = secret.zip(guess).count { pair: Pair<Char, Char> -> pair.first == pair.second }
+
+    val commonLetters = "ABCDEF".sumOf { ch ->
+
+        secret.count { c: Char -> c == ch }.coerceAtMost(guess.count { c: Char -> c == ch })
+    }
+    return Evaluation(rightPositions, commonLetters - rightPositions)
+}
+
+fun main(args: Array<String>) {
+    val result = Evaluation(rightPosition = 1, wrongPosition = 1)
+    evaluateGuessFunctionalStyle("BCDF", "ACEB") eq result
+    evaluateGuessFunctionalStyle("AAAF", "ABCA") eq result
+    evaluateGuessFunctionalStyle("ABCA", "AAAF") eq result
+}
+
+private infix fun Evaluation.eq(result: Evaluation) {
+    println("$this == $result:${this.rightPosition == result.rightPosition && this.wrongPosition == result.wrongPosition}")
 }
 
 private fun evaluateGuessWithMaps(secret: String, guess: String): Evaluation {
@@ -17,18 +40,17 @@ private fun evaluateGuessWithMaps(secret: String, guess: String): Evaluation {
 
     val guessMapAfterRemovingRightPositions =
         guessMap.filter { entry -> !rightPositions.contains((entry.key to entry.value)) }.toMutableMap()
-    val secretAfterRemovingRightPositions =
+    val secretMapAfterRemovingRightPositions =
         secretMap.filter { entry -> !rightPositions.contains((entry.key to entry.value)) }.toMutableMap()
 
     //2nd the one left if there are the same letters they are all in the wrong positions
-    val wrongPositions = checkWrongPositions(guessMapAfterRemovingRightPositions, secretAfterRemovingRightPositions)
+    val wrongPositions = checkWrongPositions(guessMapAfterRemovingRightPositions, secretMapAfterRemovingRightPositions)
 
     return Evaluation(rightPositions.size, wrongPositions.size)
 }
 
 private fun checkRightPositions(
-    guessMap: MutableMap<Int, Char>,
-    secretMap: MutableMap<Int, Char>
+    guessMap: MutableMap<Int, Char>, secretMap: MutableMap<Int, Char>
 ): List<Pair<Int, Char>> {
     val markedToRemove: MutableList<Pair<Int, Char>> = mutableListOf()
     for ((idx, char) in guessMap) {
@@ -40,16 +62,16 @@ private fun checkRightPositions(
 }
 
 private fun checkWrongPositions(
-    guessMap: MutableMap<Int, Char>,
-    secretMap: MutableMap<Int, Char>
+    guessMap: MutableMap<Int, Char>, secretMap: MutableMap<Int, Char>
 ): List<Pair<Int, Char>> {
     //we can have repeated letters on the guess and not the same number on the secret
     //keep record of taken positions
     val wrongPositions: MutableList<Pair<Int, Char>> = mutableListOf()
     val takenPositions: MutableList<Int> = mutableListOf()
     for (char in guessMap.values) {
-        val indexFound =
-            getFirstIndexNotTakenForGivenValue(valuesMap = secretMap, takenPositions = takenPositions, lookupValue = char)
+        val indexFound = getFirstIndexNotTakenForGivenValue(
+            valuesMap = secretMap, takenPositions = takenPositions, lookupValue = char
+        )
         if (indexFound != null) {
             takenPositions += indexFound
             wrongPositions += (indexFound to char)
@@ -58,7 +80,9 @@ private fun checkWrongPositions(
     return wrongPositions
 }
 
-private fun getFirstIndexNotTakenForGivenValue(valuesMap: Map<Int, Char>, takenPositions: List<Int>, lookupValue: Char): Int? {
+private fun getFirstIndexNotTakenForGivenValue(
+    valuesMap: Map<Int, Char>, takenPositions: List<Int>, lookupValue: Char
+): Int? {
     if (!valuesMap.containsValue(lookupValue)) {
         return null
     }

@@ -1,32 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="mastermind.TestMastermindRepeatedLetters" tests="26" skipped="0" failures="0" errors="0" timestamp="2023-08-03T11:08:51" hostname="OS-7MF97D3" time="0.014">
+<testsuite name="mastermind.TestMastermindRepeatedLetters" tests="26" skipped="0" failures="0" errors="0" timestamp="2023-08-03T20:21:11" hostname="OS-7MF97D3" time="0.012">
   <properties/>
-  <testcase name="test01Sample" classname="mastermind.TestMastermindRepeatedLetters" time="0.007"/>
+  <testcase name="test01Sample" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test02Sample" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test03Sample" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test04Sample" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test04Sample" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test05" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test06" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
+  <testcase name="test06" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
   <testcase name="test07" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
   <testcase name="test08" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
   <testcase name="test09" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test10" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test10" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test11" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test12" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test12" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test13" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test14" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test14" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test15" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test16" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
-  <testcase name="test17" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
+  <testcase name="test16" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test17" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
   <testcase name="test18" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test19" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test19" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test20" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test21" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
-  <testcase name="test22" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test21" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
+  <testcase name="test22" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
   <testcase name="test23" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
   <testcase name="test24" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
   <testcase name="test25" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <testcase name="test26" classname="mastermind.TestMastermindRepeatedLetters" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="test26" classname="mastermind.TestMastermindRepeatedLetters" time="0.001"/>
+  <system-out><![CDATA[[(A, A), (A, D), (B, F), (C, E)]
+[(A, A), (A, D), (B, F), (C, E)]
+[(A, A), (A, D), (B, F), (C, A)]
+[(A, A), (A, D), (B, F), (C, A)]
+[(A, D), (A, F), (B, A), (C, A)]
+[(A, D), (A, F), (B, A), (C, A)]
+[(A, D), (A, E), (B, F), (C, A)]
+[(A, D), (A, E), (B, F), (C, A)]
+[(A, E), (B, A), (C, A), (D, A)]
+[(A, E), (B, A), (C, A), (D, A)]
+[(A, A), (A, D), (B, F), (C, A)]
+[(A, A), (A, D), (B, F), (C, A)]
+[(A, D), (A, E), (B, F), (C, A)]
+[(A, D), (A, E), (B, F), (C, A)]
+[(E, C), (D, B), (E, F), (B, E)]
+[(E, C), (D, B), (E, F), (B, E)]
+[(C, F), (F, C), (D, C), (F, D)]
+[(C, F), (F, C), (D, C), (F, D)]
+[(A, A), (A, E), (B, F), (C, D)]
+[(A, A), (A, E), (B, F), (C, D)]
+[(D, A), (C, B), (F, E), (C, C)]
+[(D, A), (C, B), (F, E), (C, C)]
+[(F, F), (D, B), (C, A), (D, D)]
+[(F, F), (D, B), (C, A), (D, D)]
+[(D, A), (E, A), (F, B), (A, C)]
+[(D, A), (E, A), (F, B), (A, C)]
+[(D, A), (A, A), (A, B), (E, C)]
+[(D, A), (A, A), (A, B), (E, C)]
+[(B, D), (B, F), (D, B), (C, B)]
+[(B, D), (B, F), (D, B), (C, B)]
+[(D, F), (B, F), (F, D), (F, D)]
+[(D, F), (B, F), (F, D), (F, D)]
+[(B, A), (D, A), (A, A), (D, E)]
+[(B, A), (D, A), (A, A), (D, E)]
+[(F, C), (D, A), (D, B), (B, B)]
+[(F, C), (D, A), (D, B), (B, B)]
+[(B, D), (D, D), (B, F), (C, C)]
+[(B, D), (D, D), (B, F), (C, C)]
+[(E, C), (C, E), (D, E), (E, E)]
+[(E, C), (C, E), (D, E), (E, E)]
+[(A, A), (A, B), (A, C), (F, A)]
+[(A, A), (A, B), (A, C), (F, A)]
+[(B, A), (C, F), (D, E), (A, A)]
+[(B, A), (C, F), (D, E), (A, A)]
+[(E, A), (E, F), (E, E), (E, A)]
+[(E, A), (E, F), (E, E), (E, A)]
+[(E, A), (E, F), (B, E), (E, A)]
+[(E, A), (E, F), (B, E), (E, A)]
+[(E, E), (E, E), (A, E), (D, E)]
+[(E, E), (E, E), (A, E), (D, E)]
+[(B, E), (A, A), (C, F), (D, F)]
+[(B, E), (A, A), (C, F), (D, F)]
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
